@@ -1,0 +1,28 @@
+import math
+import random
+N = int(input("Zadejte N: "))
+
+P = 0.000
+t = 8760
+a = 0.000001
+b = 0.0000001
+c = 0.00001
+d = 0.000003
+e = 0.0000008
+f = 0.000002
+
+for x in range(N):
+    ta = -1/(a)* math.log(1-random.random())
+    tb = -1/(b)* math.log(1-random.random())
+    tc = -1/(c)* math.log(1-random.random())
+    td = -1/(d)* math.log(1-random.random())
+    te = -1/(e)* math.log(1-random.random())
+    tf = -1/(f)* math.log(1-random.random())
+    tq = min(max(min(ta, tb),tc),max(min(td,te),tf))
+    if tq > t:
+        P = P+1
+
+#Výpočet pravděpodobnosti bezporuchového provozu
+R = P/N
+print(f"Pravděpodobnost bezporuchového provozu pro {N} opakování je: {R}")
+
